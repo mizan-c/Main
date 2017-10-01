@@ -1,1 +1,23 @@
+#include <stdio.h>
 
+
+int main(int argc, char* argv[]) {
+    /*
+     * argv[0] is the programm name itself
+     */
+    if(argc!=3) {
+      printf("need two argument, one is iputfile and another is outputfile!\n");
+        return 0;
+    }
+
+    char* infile = argv[1];
+    char* outfile = argv[2];
+
+
+        FILE *in = fopen(infile, "r");
+        FILE *out = fopen(outfile, "w");
+
+        if(in == NULL) {
+            perror(infile);
+            return 0;
+        }
